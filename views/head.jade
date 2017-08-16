@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+      block head
+        title #{title} | #{describe}
+        link(rel='stylesheet', href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css")
+        link(rel='stylesheet', href="/stylesheets/style.css")
+        link(rel='stylesheet', href="/stylesheets/inspiration.css")
+        script(type='text/javascript' src="/javascripts/clipboard.min.js")
+        script(type='text/javascript' src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js")
+        script(type='text/javascript' src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js")
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='淘宝优惠券查询系统，每天搜罗最新淘宝优惠券，一键搜索，领券购物，搜红包，让您网购省不停！')
+        meta(name="keywords" content="淘宝优惠券,天猫优惠券,淘宝内部优惠券,折扣券,聚划算,淘宝红包,天猫红包")
+        link(rel='apple-touch-icon' href='/images/apple-icon.png')
+        meta(name='apple-mobile-web-app-title' content='淘殿堂')
+        meta(name='baidu-site-verification' content='OjR2tFN9t7')
+
+        //统计代码
+        script(type='text/javascript').
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?ea1b63476d071e51bcad5dd9d1bff107";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        script(type='text/javascript').
+            (function () {
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+    block content

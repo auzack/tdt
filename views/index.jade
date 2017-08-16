@@ -1,0 +1,70 @@
+extends head
+append head
+  script(type='text/javascript' src="/javascripts/homepage.js")
+  script(type='text/javascript' src="/javascripts/widget.js")
+block content
+  body
+    //-div.head-menu
+    //-  div.container
+    //-    div.row
+    //-      div.col-lg-2.col-md-2.pull-right
+    //-        ul
+    //-          li
+    //-            a.fe-1 登陆
+    //-          li |
+    //-          li
+    //-           a.fe-1 注册
+    div.top-brand
+      div.container
+        div.row
+          div.col-lg-5.col-md-5
+            img(src='/images/web-logo.png' alt='淘殿堂')
+          div.col-lg-4.col-md-4
+            div.input-group
+              input(type='text' placeholder='输入关键字搜索').form-control#search_input
+              span.input-group-btn
+                button(onclick='openSearchPage()').btn 淘一下
+          div.col-lg-3.col-md-3
+            img(src='/images/tap-0.png' alt='淘宝优惠券搜索器').brand-tag-img
+            img(src='/images/tap-2.png' alt='网购省钱利器').brand-tag-img
+            img(src='/images/tap-1.png' alt='专业精品省不停').brand-tag-img
+
+    div.main-nav
+      div.container
+        div.row
+          div.col-lg-10
+            ul
+              li
+                a.cursor-pointer.transition-05s.active 淘殿堂
+              li
+                a(href='/search' target='_blank').transition-05s 搜券神器
+              li
+                a.cursor-pointer.transition-05s 淘贝商城
+          //-div.col-lg-2.pull-right
+          //-  i.tag-icon.tag-icon.tag-icon-gift
+          //-  a.main-nav-sign.cursor-pointer 淘贝签到
+    div.content-center
+      div.container
+        div.row
+          div.col-lg-12.col-md-12
+            div(data-ride="carousel" data-interval="2000").carousel.slide#myCarousel
+              ol.carousel-indicators
+                li(data-target="#myCarousel" data-slide-to="0").active
+              div.carousel-inner
+                div.item.active
+                  a(href='https://s.click.taobao.com/3Tup5hw' target='_blank')
+                    img(src='/images/billboard.png' alt="First slide")
+        div.row.dividing
+          div.col-lg-5.col-md-5
+            i.tag-icon.tag-icon
+            i.search-kw-title 大家都在搜什么？
+        div.row
+            div.search-kw-tag
+              each kw in keywords
+                div.keyword-box
+                  a(onclick='openSearchPage(\'#{kw}\')' title='#{kw}')= kw
+        include index/hotcommodities
+        //-include index/hqshops
+        include index/redpapers
+        include index/widget
+  include footer

@@ -1,0 +1,22 @@
+div.side-menu
+    div.transition-05s.icon-kf.d-normal.cursor-pointer
+    div(onclick='say()').transition-05s.icon-fk.d-end.cursor-pointer
+    div(onclick='scrollToTop()')#to-top-btn.transition-05s.icon-top.hide.d-end.cursor-pointer
+    //div.kf-box
+
+div(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")#modal_dialog.modal.fade
+    div.modal-dialog.tdt-modal-dialog
+        div.modal-content
+            div.modal-header
+                //button(data-dismiss="modal" aria-hidden="true").close &times;
+                h4#modal_dialog_title.modal-title 操作提示
+            div.modal-body
+                p#modal_dialog_msg This is a message
+            div.modal-footer
+                button(data-dismiss="modal").btn 关  闭
+div(style='display:none')#load-modal.modal-loader
+    div.bg
+        h5 请求中
+        span
+        span
+        span

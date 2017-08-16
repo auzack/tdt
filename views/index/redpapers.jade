@@ -1,0 +1,47 @@
+div.row.dividing
+    div.col-lg-12.col-md-12
+        i.tag-icon.tag-icon.tag-icon-redpaper
+        h3.column-title 每日红包
+            //small &nbsp&nbsp必买不容错过
+div.row
+    div#category_tags.col-lg-12.col-md-12.redpaper-block-tag
+        each item, i in categories
+            if i == 0
+                a(id='category_tag_#{i}' onClick='changeCategory(#{i})').active #{item.title}
+            else
+                a(id='category_tag_#{i}' onClick='changeCategory(#{i})') #{item.title}
+div#commodities_container
+    mixin pakeageItem(item, i)
+       if item
+        div(id='commodity_#{i}').col-sm-6.col-md-3
+            div.redpaper-commodities-item-box.transition-05s.thumbnail
+                a(href=item.coupon_url target='_blank')#commodity_img_url
+                    img(src=item.img alt='淘宝优惠券').img-responsive#commodity_img
+                div.coupon-num
+                    i.icon-22.icon-coupon.pull-left
+                    p#commodity_coupon_num #{item.coupon_num}/#{item.coupon_max}
+                div.title
+                    if item.pla == 0
+                        i.icon-22.icon-tb#commodity_pla
+                    else
+                        i.icon-22#commodity_pla
+                    a(href=item.coupon_url target='_blank' title='#{item.title}')#commodity_title #{item.title}
+                div.price
+                    i.i1 券后￥
+                        span
+                            i.i2#commodity_disprice #{item.disprice}
+                    i.i3 原价
+                        s ￥
+                            span#commodity_price #{item.price}
+                div.coupon-btn
+                    a(share-target='commodity_#{i}').a1.pull-left.share-coupon.cursor-pointer#share_btn 分享好友
+                    a(href=item.coupon_url target='_blank').a2.pull-right#commodity_coupon_btn 领券#{item.coupon_val}元
+    - for (var i=0; i<redcommodities.length; i+=4)
+        div.row
+            mixin pakeageItem(redcommodities[i], i)
+            mixin pakeageItem(redcommodities[i+1], i+1)
+            mixin pakeageItem(redcommodities[i+2], i+2)
+            mixin pakeageItem(redcommodities[i+3], i+3)
+div#category_more.row
+    div(onclick='getMorecommodities()').col-md-12.col-sm-12.redpaper-more-btn.transition-05s.cursor-pointer
+        p 加载更多...

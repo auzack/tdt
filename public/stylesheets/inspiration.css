@@ -1,0 +1,173 @@
+body{
+    font-family: 'Microsoft YaHei';
+    font-size: 62.5%;
+}
+.fe-1{
+    font-size: 1em;
+}
+
+.f-px-14{
+    font-size: 14px;
+}
+.f-px-13{
+    font-size: 13px;
+}
+.tag-icon{
+    display: inline-block;
+    background-image: url("/images/tag-icon.png");
+    width: 38px;
+    height: 38px;
+}
+
+.tag-icon-shoppingcart{
+    background-position: -38px 0;
+}
+
+.tag-icon-shop{
+    background-position: -114px 0;
+}
+.tag-icon-redpaper{
+    background-position: -228px 0;
+}
+.tag-icon-gift{
+    background-position: -76px 0;
+}
+
+.transition-05s{
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.icon-22{
+    display: inline-block;
+    background-image: url("/images/icon-22.png");
+    width: 22px;
+    height: 22px;
+}
+.icon-tb{
+    background-position: -22px 0;
+}
+.icon-coupon{
+    background-position: -44px 0;
+}
+.icon-share{
+    background-position: -66px 0;
+}
+.icon-top{
+    background-position: 0px -22px;
+}
+.icon-kf{
+    background-position: -44px -22px;
+}
+.icon-fk{
+    background-position: -88px -22px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.modal-loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.modal-loader .bg{
+    position:absolute;
+    top: 40%;
+    left:50%;
+    margin-left:-50px;
+    border-radius: 5px;
+    width: 100px;
+    height: 60px;
+    background-color: #34352c;
+    box-shadow: black 1px 1px 8px;
+}
+
+.modal-loader .bg h5{
+    color: white;
+    text-align: center;
+}
+
+.modal-loader span{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    display:inline-block;
+    position:absolute;
+    left:50%;
+    margin-left:-10px;
+    animation:3s infinite linear;
+    -webkit-animation:3s infinite linear;
+}
+
+
+.modal-loader span:nth-child(2){
+    background:#E84C3D;
+    animation: csshub-kiri 1.2s infinite linear;
+    -webkit-animation:csshub-kiri 1.2s infinite linear;
+    z-index:20;
+}
+
+.modal-loader span:nth-child(3){
+    background:#F1C40F;
+    z-index:100;
+}
+
+.modal-loader span:nth-child(4){
+    background:#2FCC71;
+    animation:csshub-kanan 1.2s infinite linear;
+    -webkit-animation:csshub-kanan 1.2s infinite linear;
+    z-index:20;
+}
+
+
+@-webkit-keyframes csshub-kanan {
+    0% {-webkit-transform:translateX(20px);
+    }
+
+    50%{-webkit-transform:translateX(-20px);
+    }
+
+    100%{-webkit-transform:translateX(20px);
+        z-index:200;
+    }
+}
+@keyframes csshub-kanan {
+    0% {transform:translateX(20px);
+    }
+
+    50%{transform:translateX(-20px);
+    }
+
+    100%{transform:translateX(20px);
+        z-index:200;
+    }
+}
+
+@-webkit-keyframes csshub-kiri {
+    0% {-webkit-transform:translateX(-20px);
+        z-index:200;
+    }
+    50%{-webkit-transform:translateX(20px);
+    }
+    100%{-webkit-transform:translateX(-20px);
+    }
+}
+
+@keyframes csshub-kiri {
+    0%{ transform:translateX(-20px);
+        z-index:200;
+    }
+    50%{transform:translateX(20px);
+    }
+    100%{transform:translateX(-20px);
+    }
+}

@@ -1,0 +1,89 @@
+extends head
+append head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(type='text/javascript' src="/javascripts/widget.js")
+    script(type='text/javascript' src="/javascripts/searchpage.js")
+block content
+    body
+        div.container.search-container
+            .row
+                .col-md-12.col-sm-12.search-logo
+                    img(src='/images/logo.png' alt='淘宝优惠券搜索系统').center-block
+            .search-panel.panel-body
+               .row
+                  .col-md-6.col-xs-12.col-lg-6.col-md-offset-3
+                    div.input-group
+                        input(type='text' placeholder='输入关键字搜索' value='#{keyword}').form-control#search_page_input
+                        span.input-group-btn
+                            button(onclick='searchCommodity()').btn 淘一下
+               .row
+                   .col-md-12
+                       p 别人搜什么？
+               .row
+                   .col-md-12
+                       .search-keyword-box
+                           for item in keywords
+                               div.keyword-box
+                                   a(onclick='searchCommodity_0(\'#{item}\', 0)' title='#{item}').cursor-pointer #{item}
+            #commodities_container
+                mixin pakeageItem(item, i)
+                   if item
+                    div(id='commodity_#{i}').col-sm-6.col-md-3
+                        div.redpaper-commodities-item-box.transition-05s.thumbnail
+                            a(href=item.coupon_url target='_blank')#commodity_img_url
+                                img(src=item.img alt='淘宝优惠券')#commodity_img
+                            div.coupon-num
+                                i.icon-22.icon-coupon.pull-left
+                                p#commodity_coupon_num #{item.coupon_num}/#{item.coupon_max}
+                            div.title
+                                if item.pla == 0
+                                    i.icon-22.icon-tb#commodity_pla
+                                else
+                                    i.icon-22#commodity_pla
+                                a(href=item.coupon_url target='_blank' title='#{item.title}')#commodity_title #{item.title}
+                            div.price
+                                i.i1 券后￥
+                                    span
+                                        i.i2#commodity_disprice #{item.disprice}
+                                i.i3 原价
+                                    s ￥
+                                        span#commodity_price #{item.price}
+                            div.coupon-btn
+                                a(share-target='commodity_#{i}').a1.pull-left.share-coupon.cursor-pointer#share_btn 分享好友
+                                a(href=item.coupon_url target='_blank').a2.pull-right#commodity_coupon_btn 领券#{item.coupon_val}元
+                - for (var i=0; i<commodities.length; i+=4)
+                    div.row
+                        mixin pakeageItem(commodities[i], i)
+                        mixin pakeageItem(commodities[i+1], i+1)
+                        mixin pakeageItem(commodities[i+2], i+2)
+                        mixin pakeageItem(commodities[i+3], i+3)
+            if commodities.length == 16
+                div#category_more.row
+                    div(onclick='getMoreCommodities()').col-md-12.col-sm-12.redpaper-more-btn.transition-05s.cursor-pointer
+                        p 加载更多...
+            else
+                div#category_more.row.hide
+                    div(onclick='getMoreCommodities()').col-md-12.col-sm-12.redpaper-more-btn.transition-05s.cursor-pointer
+                        p 加载更多...
+    div(id='commodity_template').col-sm-6.col-md-3.hide
+        div.redpaper-commodities-item-box.transition-05s.thumbnail
+            a(href='' target='_blank')#commodity_img_url
+                img(src='' alt='淘宝优惠券')#commodity_img
+            div.coupon-num
+                i.icon-22.icon-coupon.pull-left
+                p#commodity_coupon_num 1
+            div.title
+                i.icon-22.icon-tb#commodity_pla
+                a(href='' target='_blank')#commodity_title 11
+            div.price
+                i.i1 券后￥
+                    span
+                        i.i2#commodity_disprice 11
+                i.i3 原价
+                    s ￥
+                        span#commodity_price 1
+            div.coupon-btn
+                a(share-target='commodity_#{i}').a1.pull-left.share-coupon.cursor-pointer#share_btn 分享好友
+                a(href='' target='_blank').a2.pull-right#commodity_coupon_btn 领券1元
+    include index/widget
+    include footer

@@ -1,0 +1,19 @@
+div.row.dividing
+    div.col-lg-11.col-md-11
+        i.tag-icon.tag-icon.tag-icon-shop
+        h3.column-title 优质店铺
+div(style='margin-top:8px').row
+    mixin shopitem
+        div.col-lg-3.col-md-3
+            div.hqshop-box.transition-05s
+                div
+                    img(src='https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/TB1RExKRVXXXXXgapXXXXXXXXXX_!!0-item_pic.jpg_250x250.jpg_.webp')
+                    p
+                      a Apple旗舰店
+                    p 来源：天猫
+                    p 主营：手机
+                    p.factor 淘指数：
+                       i(title='关于淘指数请参照网站下方说明 指数越高店铺越优良') 96分
+    -var shop=['']
+        for i in shop
+            mixin shopitem

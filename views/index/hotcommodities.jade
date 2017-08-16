@@ -1,0 +1,22 @@
+div.row.dividing
+    div.col-lg-11.col-md-11
+        i.tag-icon.tag-icon.tag-icon-shoppingcart
+        h3.column-title 热门宝贝
+//marquee(onmouseover="this.stop()" onmouseout="this.start()" behavior='alternate')
+div.row
+    mixin hotitem(item, i)
+        div(id='hot_commodities_#{i}').hot-commodity-box.transition-05s
+            a(href=item.coupon_url target='_blank')
+                img(src=item.img alt='淘宝优惠券')
+            div.title
+                a(href=item.coupon_url target='_blank' title='#{item.title}').f-px-14#title= item.title
+                i(share-target='hot_commodities_#{i}' title='点击分享').icon-22.icon-share.share-coupon-hot.cursor-pointer
+            div.btn-box
+                a(href=item.coupon_url target='_blank').f-px-14 领券#{item.coupon_val}
+                p#hot_price.hide #{item.price}
+                i 抢购￥
+                    span: i#hot_disprice= item.disprice
+    marquee(onmouseover="this.stop()" onmouseout="this.start()" behavior='alternate')
+        each item, i in hotcommodities
+           mixin hotitem(item, i)
+
